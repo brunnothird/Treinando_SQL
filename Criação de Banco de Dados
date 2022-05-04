@@ -1,0 +1,19 @@
+CREATE TABLE notas_dos_alunos 
+(NOME VARCHAR(100),
+NOTA FLOAT );
+
+INSERT INTO notas_dos_alunos (NOME, NOTA) VALUES ('João', 8);
+INSERT INTO notas_dos_alunos (NOME, NOTA) VALUES ('Maria', 9);
+INSERT INTO notas_dos_alunos (NOME, NOTA) VALUES ('José', 7);
+INSERT INTO notas_dos_alunos (NOME, NOTA) VALUES ('Giovana', 4);
+
+SELECT * FROM notas_dos_alunos;
+
+SELECT NOME, 
+CASE
+	WHEN NOTA >= 9 THEN 'MUITO BOM'
+    WHEN NOTA >= 8 AND NOTA < 9 THEN 'BOM'
+    WHEN NOTA >= 5 AND NOTA < 8 THEN 'REGULAR'
+    ELSE 'RUIM' END AS 'CLASSIFICAÇÃO'
+    FROM notas_dos_alunos
+    ORDER BY NOME;
